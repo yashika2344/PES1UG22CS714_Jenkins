@@ -1,12 +1,12 @@
 pipeline {
-    agent any  // Runs on any available agent
+    agent any
 
     stages {
         stage('Build') {
             steps {
                 script {
                     echo "Compiling hello.cpp"
-                    sh 'g++ main/hello.cpp -o main/hello_exec'  // Compile C++ file
+                    sh 'g++ main/hello.cpp -o main/hello_exec'
                 }
             }
         }
@@ -15,7 +15,7 @@ pipeline {
             steps {
                 script {
                     echo "Executing hello_exec"
-                    sh './main/hello_exec'  // Run the compiled executable
+                    sh './main/hello_exec'
                 }
             }
         }
@@ -31,3 +31,7 @@ pipeline {
 
     post {
         failure {
+            echo "Pipeline Failed!"
+        }
+    }
+}
