@@ -15,7 +15,8 @@ pipeline {
             steps {
                 script {
                     echo "Executing hello_exec"
-                    sh './main/hello_exec'
+                    // Introduced an intentional error by changing the filename
+                    sh './wrong_file'
                 }
             }
         }
